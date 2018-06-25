@@ -30,7 +30,7 @@
 					<li data-target="#myCarousel" data-slide-to="2"></li>
 				</ol>
 				<!-- 轮播（Carousel）项目 -->
-				<div class="carousel-inner">
+				<div class="carousel-inner ">
 					<div class="item active">
 						<img src="img/1.jpg" width="100%" alt="First slide">
 					</div>
@@ -98,5 +98,7 @@
 	</body>
 	<script type="text/javascript" src="js/jquery-2.1.0.js"></script>
 	<script type="text/javascript" src="js/bootstrap.js"></script>
-
+	<script type="text/javascript">
+		$('#myCarousel').carousel({interval:3000});//每隔5秒自动轮播 
+	</script>
 </html>

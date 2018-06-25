@@ -3,20 +3,20 @@ package dao.impl;
 import java.util.HashMap;
 import java.util.Map;
 
-import dao.UserDao;
+import dao.AdminDao;
 
 /**
  * @author 作者 pineapple 
  * @E-mail: 2443755705@qq.com
- * @version 创建时间：2018年6月25日 下午4:32:37
- * @description 用户dao实现
+ * @version 创建时间：2018年6月25日 下午9:41:33
+ * @description 类说明
  */
-public class UserDaoImpl implements UserDao {
+public class AdminDaoImpl implements AdminDao {
 
 	@Override
-	public Map<String, Object> selectUserByName(String name) {
+	public Map<String, Object> selectAdminByName(String name) {
 		Map<String, Object> map = new HashMap<>();
-		map.put("username", name);
+		
 		map.put("password", "123456");
 		return map;
 	}

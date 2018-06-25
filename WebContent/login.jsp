@@ -41,7 +41,7 @@
 				<div id="form-title">
 					<h2> 区域疾病监控系统登录 </h2>
 				</div>
-				<form id="registForm" action="/userLogin" method="post">
+				<form id="registForm" action="/sickness-system/userLogin" method="post">
 					
 					<div class="form-group">
 						<label for="accout">姓名：</label>
@@ -52,7 +52,7 @@
 						<input id="password" type="password" name="password" placeholder="请输入密码" />
 					</div>
 					<div class="form-group">
-						<input type="radio" name="login_type" value="user" id="user" /><label for="user"> 用户登录</label>
+						<input type="radio" name="login_type" value="user" checked id="user" /><label for="user"> 用户登录</label>
 						<input type="radio" name="login_type" value="admin" id="admin" /><label for="admin"> 管理员登录</label>
 					</div>
 					<div class="form-group">

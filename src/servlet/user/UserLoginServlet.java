@@ -8,8 +8,11 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
+import service.AdminService;
 import service.UserService;
+import service.impl.AdminServiceImpl;
 import service.impl.UserServiceImpl;
 
 /**
@@ -21,7 +24,9 @@ import service.impl.UserServiceImpl;
 @WebServlet("/userLogin")
 public class UserLoginServlet extends HttpServlet {
 	
-	UserService service = new UserServiceImpl();
+	UserService uservice = new UserServiceImpl();
+	
+	AdminService aservice = new AdminServiceImpl();
 
 	/**
 	 * 
@@ -35,15 +40,42 @@ public class UserLoginServlet extends HttpServlet {
 
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		String loginType = req.getParameter("login_type");
+		if(loginType.equals("user")) {
+			userLogin(req, resp);
+		}else if(loginType.equals("admin")) {
+			adminLogin(req, resp);
+		}
+		
+	}
+
+	private void adminLogin(HttpServletRequest req, HttpServletResponse resp) throws IOException {
 		String username = req.getParameter("username");
 		String password = req.getParameter("password");
-		Map<String, Object> user = service.selectUserByName(username);
+		HttpSession session = req.getSession();
+		Map<String, Object> user = aservice.selectAdminByName(username);
 		if(user != null && user.get("password") != null && user.get("password").equals(password)) {
-			resp.sendRedirect("/home.jsp");
+			session.setAttribute("role", "admin");
+			resp.sendRedirect("/sickness-system/home.jsp");
 		} else {
-			req.getSession().setAttribute("msg", "用户名或密码错误！");
-			resp.sendRedirect("/login.jsp");
+			session.setAttribute("msg", "用户名或密码错误！");
+			resp.sendRedirect("/sickness-system/login.jsp");
 		}
+	}
+
+	private void userLogin(HttpServletRequest req, HttpServletResponse resp) throws IOException {
+		String username = req.getParameter("username");
+		String password = req.getParameter("password");
+		HttpSession session = req.getSession();
+		Map<String, Object> user = uservice.selectUserByName(username);
+		if(user != null && user.get("password") != null && user.get("password").equals(password)) {
+			session.setAttribute("role", "user");
+			resp.sendRedirect("/sickness-system/home.jsp");
+		} else {
+			session.setAttribute("msg", "用户名或密码错误！");
+			resp.sendRedirect("/sickness-system/login.jsp");
+		}
+		
 	}
 	
 	

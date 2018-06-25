@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 
@@ -24,6 +25,7 @@
 							<a class="navbar-brand" href="home-frame.jsp" target="inframe">首页</a>
 						</div>
 						<ul class="nav navbar-nav">
+						<c:if test="${role =='admin'}"><!-- 如果是管理员才能看到这个地方 -->
 							<li class="hospital_manage">
 								<a href="sicker-manage.jsp" target="inframe" class="hospital-manage">医院等相关部门管理</a>
 							</li>
@@ -33,6 +35,7 @@
 							<li class="watch-manage">
 								<a href="monitoring-and-management.jsp" target="inframe" class="watch-manage">监控管理</a>
 							</li>
+						</c:if>
 							<li class="">
 								<a href="regist.jsp" target="_blank">用户注册</a>
 							</li>
@@ -43,8 +46,13 @@
 								<a href="browse-info.jsp" target="inframe">浏览信息</a>
 							</li>
 							<li class="">
-								<a href="#">留言反馈</a>
+								<a href="#" data-toggle="modal" data-target="#myModal">留言反馈</a>
 							</li>
+						<c:if test="${role =='admin'}">
+							<li class="">
+								<a href="#">用户留言<span class="badge pull-right">3</span></a>
+							</li>
+						</c:if>
 							<li class="">
 								<a href="#">关于我们</a>
 							</li>
@@ -62,13 +70,16 @@
 		<!--<button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">开始演示模态框</button>-->
 		<!-- 模态框（Modal） -->
 		<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-			<div class="modal-dialog">
+			<div class="modal-dialog modal-md">
 				<div class="modal-content">
 					<div class="modal-header">
 						<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-						<h4 class="modal-title" id="myModalLabel">模态框（Modal）标题</h4>
+						<h4 class="modal-title" id="myModalLabel">留言反馈</h4>
 					</div>
-					<div class="modal-body">在这里添加一些文本</div>
+					<div class="modal-body" style="text-align:center;">
+						<label>请输入您的留言反馈：</label><br/>
+						<textarea rows="5" cols="30" id="userFadeback"></textarea>
+					</div>
 					<div class="modal-footer">
 						<button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
 						<button type="button" class="btn btn-primary">提交更改</button>
