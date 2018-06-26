@@ -17,4 +17,7 @@ public interface UserDao {
 	 */
 	Map<String, Object> selectUserByName(String name);
 
+	int userRegist(String name, String password, String sex, String age, String email, String phone, String home_addr,
+			String work_addr);
+
 }

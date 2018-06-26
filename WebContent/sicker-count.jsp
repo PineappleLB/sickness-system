@@ -3,73 +3,89 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
+
 	<head>
 		<meta charset="UTF-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<title></title>
 		<link rel="stylesheet" href="css/bootstrap.css" />
 		<style>
-			#app #head-nav{
+			#app #head-nav {
 				height: 60px;
 				background: #ABE3FF;
 			}
-			#app #head-nav ul{
+			
+			#app #head-nav ul,
+			#app #center-nav ul {
 				margin: 10px auto;
 			}
-			#app #head-nav ul li{
+			
+			#app #head-nav ul li,
+			#app #center-nav ul li {
 				margin: 0 10px;
-				
 			}
-			#app #head-nav ul li select{
+			
+			#app #head-nav ul li select {
 				line-height: 26px;
 				height: 26px;
 			}
-			#app #center-nav{
+			
+			#app #center-nav {
 				height: 60px;
 				background: #738FFF;
 			}
-			#app #center-nav ul{
-				margin: 10px auto;
+			
+			#app #content-table #table-div {
+				height: 610px;
 			}
-			#app #center-nav ul li{
-				margin: 0 10px;
-				
+			
+			#app #content-table #table-div table tbody tr td input {
+				display: inline-block;
 			}
-			#app #content-table #table-div{
-			}
-			#app #content-table table thead tr th{
+			
+			#app #content-table table thead tr th {
 				text-align: center;
 			}
-			#app #content-table table thead tr{
+			
+			#app #content-table table thead tr {
 				background: #D2D2D2;
 				height: 45px;
 			}
-			#app #table-bottom-nav{
+			
+			#app #content-table table tbody tr td {
+				/*padding: 3px;*/
+			}
+			
+			#app #table-bottom-nav {
 				height: 50px;
 				background: #D2D2D2;
-				/*position: relative;
-				bottom: -168px;*/
+				position: relative;
+				bottom: -108px;
 			}
-			#app #table-bottom-nav div{
+			
+			#app #table-bottom-nav div {
 				margin: 10px auto;
 			}
-			#app #table-bottom-nav ul li{
+			
+			#app #table-bottom-nav ul li {
 				margin: 0 5px;
 			}
-			#app #table-bottom-nav ul li input{
+			
+			#app #table-bottom-nav ul li input {
 				width: 50px;
 				height: 34px;
 			}
-			#app  table tbody tr td input{
+			#myModal form div label{
 				display: inline-block;
+				width: 90px;
+				text-align: right;
 			}
 		</style>
 	</head>
+
 	<body>
 		<div id="app">
 			<div id="head-nav">
 				<ul class="nav navbar-nav">
-					<li>查询内容：</li>
 					<li>
 						<select id="sickType">
 							<option value="all">所有疾病</option>
@@ -91,70 +107,41 @@
 						</select>
 					</li>
 					<li>
-						<input type="radio" name="selType" value="info" id="info" checked="ckecked" /><label for="info"> 查询详细信息</label>
-						<input type="radio" name="selType" value="count" id="count" /><label for="count"> 查询统计结果</label>
+						<input type="radio" name="selType" value="info" id="info" /><label for="info"> 查询详细信息</label>
+						<input type="radio" name="selType" value="count" id="count" checked="ckecked" /><label for="count"> 查询统计结果</label>
 					</li>
-					<li><button class="btn btn-primary selectBtn" onclick="selectInfo()">查询</button></li>
-					<li><button class="btn btn-primary flushBtn">刷新</button></li>
+					<li><button class="btn btn-primary" onclick="selectInfo()">查询</button></li>
+					<li><button class="btn btn-primary">刷新</button></li>
 				</ul>
 			</div>
-
 			<div id="content-table">
 				<div id="table-div">
 					<table class="table table-striped text-center table-bordered table-hover table-condensed">
 						<thead>
-							<!--病人编号、姓名、年龄、家庭住址、所患疾病、联系方式、工作地点、活动范围-->
 							<tr>
-								<th>病人编号</th>
-								<th>姓名</th>
-								<th>年龄</th>
-								<th>家庭住址</th>
-								<th>所患疾病</th>
-								<th>联系方式</th>
-								<th>工作地点</th>
+								<th>疾病类型</th>
 								<th>区域</th>
+								<th>数量</th>
 							</tr>
 						</thead>
 						<tbody>
 							<c:forEach items="${infos}" begin="0" var="info">
 								<tr>
-									<td>${info.id }</td>
-									<td>${info.name }</td>
-									<td>${info.age }</td>
-									<td>${info.home_address }</td>
 									<td>${info.sick }</td>
-									<td>${info.phone }</td>
-									<td>${info.work_address }</td>
 									<td>${info.scope }</td>
+									<td>${info.count }</td>
 								</tr>
 							</c:forEach>
 						</tbody>
 					</table>
 				</div>
+			</div>
 		</div>
+		
 	</body>
 	<script type="text/javascript" src="js/jquery-2.1.0.js"></script>
 	<script type="text/javascript" src="js/bootstrap.js"></script>
 	<script>
-		var msg='${msg}';
-		if(msg){
-			alert(msg)
-			<c:remove  var="msg"  scope="session"  />
-		}
-		$('#selectAll').change(function() {
-			if($(this).is(':checked')) {
-				$('.checkbox').each(function(){
-					$(this).prop('checked',true);
-				});
-				console.log('selected');
-			} else {
-				$('.checkbox').each(function(){
-					$(this).prop('checked',false);
-				});
-				console.log('cancel');
-			}
-		});
-		
 		function selectInfo(){
 			var type = $("input[name='selType']:checked").val();
 			console.log(type);
@@ -181,8 +168,7 @@
 		    $(document.body).append(form);
 		    // 提交表单
 		    form.submit();
-			
-			
 		}
 	</script>
+
 </html>

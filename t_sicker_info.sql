@@ -21,7 +21,7 @@ Date: 2018-06-26 08:06:26
 DROP TABLE [dbo].[t_sicker_info]
 GO
 CREATE TABLE [dbo].[t_sicker_info] (
-[id] int NOT NULL ,
+[id] int NOT NULL IDENTITY(1,1),
 [name] varchar(10) NOT NULL ,
 [age] int NULL ,
 [home_address] varchar(50) NULL ,

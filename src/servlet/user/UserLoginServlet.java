@@ -46,7 +46,6 @@ public class UserLoginServlet extends HttpServlet {
 		}else if(loginType.equals("admin")) {
 			adminLogin(req, resp);
 		}
-		
 	}
 
 	private void adminLogin(HttpServletRequest req, HttpServletResponse resp) throws IOException {

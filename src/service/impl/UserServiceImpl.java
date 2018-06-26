@@ -21,4 +21,10 @@ public class UserServiceImpl implements UserService {
 		return dao.selectUserByName(name);
 	}
 
+	@Override
+	public int userRegist(String name, String password, String sex, String age, String email, String phone,
+			String home_addr, String work_addr) {
+		return dao.userRegist(name, password, sex, age, email, phone, home_addr, work_addr);
+	}
+
 }

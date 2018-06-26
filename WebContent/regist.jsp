@@ -38,7 +38,7 @@
 				<div id="form-title">
 					<h2> 区域疾病监控系统注册 </h2>
 				</div>
-				<form id="registForm" action="/retist" method="post">
+				<form id="registForm" action="/sickness-system/regist" method="post">
 					
 					<div class="form-group">
 						<label for="accout">姓名：</label>
@@ -54,7 +54,7 @@
 					</div>
 					<div class="form-group">
 						<label >性别：</label>
-						<input id="man" type="radio" value="man" name="sex" /><span for="man"> 男</span>
+						<input id="man" type="radio" value="man" name="sex" checked="checked" /><span for="man"> 男</span>
 						<input id="woman" type="radio" value="woman" name="sex" /><span for="woman"> 女</span>
 					</div>
 					<div class="form-group">
@@ -100,7 +100,8 @@
 					required:true
 				},
 				repassword:{
-					required:true
+					required:true,
+					equalTo:"#password"
 				},
 				sex:{
 					required:true

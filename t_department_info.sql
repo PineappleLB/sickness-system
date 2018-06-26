@@ -21,7 +21,7 @@ Date: 2018-06-26 08:06:21
 DROP TABLE [dbo].[t_department_info]
 GO
 CREATE TABLE [dbo].[t_department_info] (
-[department_id] int NOT NULL ,
+[department_id] int NOT NULL IDENTITY(1,1),
 [department_name] varchar(20) NOT NULL ,
 [department_type] varchar(20) NOT NULL ,
 [department_address] varchar(50) NULL ,

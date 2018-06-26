@@ -27,13 +27,13 @@
 						<ul class="nav navbar-nav">
 						<c:if test="${role =='admin'}"><!-- 如果是管理员才能看到这个地方 -->
 							<li class="hospital_manage">
-								<a href="sicker-manage.jsp" target="inframe" class="hospital-manage">医院等相关部门管理</a>
+								<a href="/sickness-system/department" target="inframe" class="hospital-manage">医院等相关部门管理</a>
 							</li>
 							<li class="sicker-manage">
-								<a href="sicker-manage.jsp" target="inframe" class="sicker-manage">病人信息管理</a>
+								<a href="/sickness-system/sicker" target="inframe" class="sicker-manage">病人信息管理</a>
 							</li>
 							<li class="watch-manage">
-								<a href="monitoring-and-management.jsp" target="inframe" class="watch-manage">监控管理</a>
+								<a href="/sickness-system/monitoringManagement" target="inframe" class="watch-manage">监控管理</a>
 							</li>
 						</c:if>
 							<li class="">

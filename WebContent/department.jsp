@@ -111,43 +111,26 @@
 						<thead>
 							<tr>
 								<th><input type="checkbox" id="selectAll" /> 全选</th>
-								<th>病人编号</th>
-								<th>病人姓名</th>
-								<th>年龄</th>
-								<th>家庭地址</th>
-								<th>疾病类型</th>
+								<th>部门编号</th>
+								<th>部门名称</th>
+								<th>部门类型</th>
+								<th>部门地址</th>
 								<th>联系电话</th>
-								<th>工作地址</th>
-								<th>区域</th>
+								<th>邮箱</th>
 							</tr>
 						</thead>
 						<tbody>
 							<c:forEach items="${infos}" begin="0" var="info">
 								<tr>
 									<td><input type="checkbox" class="checkbox" /></td>
-									<td>${info.id }</td>
-									<td>${info.name }</td>
-									<td>${info.age }</td>
-									<td>${info.home_address }</td>
-									<td>${info.sick }</td>
+									<td>${info.department_id }</td>
+									<td>${info.department_name }</td>
+									<td>${info.department_type }</td>
+									<td>${info.department_address }</td>
 									<td>${info.phone }</td>
-									<td>${info.work_address }</td>
-									<td>${info.scope }</td>
+									<td>${info.email }</td>
 								</tr>
 							</c:forEach>
-							<tr>
-								<td><input type="checkbox" class="checkbox" /></td>
-								<td>1</td>
-								<td>1</td>
-								<td>1</td>
-								<td>1</td>
-								<td>1</td>
-								<td>1</td>
-								<td>1</td>
-								<td>1</td>
-							</tr>
-							
-
 						</tbody>
 					</table>
 				</div>
@@ -161,29 +144,21 @@
 					<form id="addForm" action="/sickness-system/monitoringManagement/add" method="post">
 						<div class="modal-header">
 							<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-							<h4 class="modal-title" id="myModalLabel">新增病人信息</h4>
+							<h4 class="modal-title" id="myModalLabel">新增部门信息</h4>
 						</div>
 						<div class="modal-body" style="text-align:center;">
 							<div class="form-group">
-								<label for="name">姓名：</label>
+								<input type="hidden" id="id" name="id" />
+							</div>
+							<div class="form-group">
+								<label for="name">部门名称：</label>
 								<input type="text" id="name" name="name" />
 							</div>
 							<div class="form-group">
-								<label for="age">年龄：</label>
-								<input type="number" id="age" name="age" maxlength="3" />
-							</div>
-							<div class="form-group">
-								<label for="home_address">家庭地址：</label>
-								<input type="text" id="home_address" name="home_address" />
-							</div>
-							<div class="form-group">
-								<label for="sick">疾病类型：</label>
-								<select name="sick" id="sick">
-									<option value="mz">麻疹</option>
-									<option value="gm">流行性感冒</option>
-									<option value="xzb">先天性心脏病</option>
-									<option value="bcb">包虫病</option>
-									<option value="bnz">白内障</option>
+								<label for="type">部门类型：</label>
+								<select name="type" id="type">
+									<option value="private">私人</option>
+									<option value="public">公立</option>
 								</select>
 							</div>
 							<div class="form-group">
@@ -191,18 +166,12 @@
 								<input type="text" id="phone" name="phone" />
 							</div>
 							<div class="form-group">
-								<label for="work_address">工作地址：</label>
-								<input type="text" id="work_address" name="work_address" />
+								<label for="address">部门地址：</label>
+								<input type="text" id="address" name="address" />
 							</div>
 							<div class="form-group">
-								<label for="scope">区域:</label>
-								<select name="scope" id="scope">
-									<option value="cgq">城关区</option>
-									<option value="dlx">堆龙县</option>
-									<option value="xsq">西山区</option>
-									<option value="whq">五华区</option>
-									<option value="lwxq">柳梧新区</option>
-								</select>
+								<label for="email">邮箱：</label>
+								<input type="email" id="email" name="email" />
 							</div>
 						</div>
 						<div class="modal-footer">
@@ -221,7 +190,7 @@
 	<script type="text/javascript" src="js/jquery.validate.min.js" ></script>
 	<script type="text/javascript" src="js/messages_zh.min.js" ></script>
 	<script>
-		var msg = "${msg}";
+		var msg = "${msg}"
 		if(msg){
 			alert(msg);
 			<c:remove  var="msg"  scope="session"  />
@@ -240,15 +209,16 @@
 			}
 		});
 
+		
 		$("#addForm").validate({
 			rules: {
 				name: {
 					required: true
 				},
-				age: {
+				phone: {
 					required: true
 				},
-				sick: {
+				address: {
 					required: true
 				}
 			}
@@ -259,7 +229,7 @@
 			var source = $(e.relatedTarget);
 			if(source.attr('id')=='updBtn') {
 				$('#addForm #name').attr('disabled',true);
-				$('#addForm').attr('action','/sickness-system/monitoringManagement/upd');
+				$('#addForm').attr('action','/sickness-system/department/upd');
 				var input = $('#table-div table tbody input[type=checkbox]:checked');
 				if(input.length > 1){
 					alert('不能同时对多个项进行更新！');
@@ -271,26 +241,22 @@
 				}
 				var tds = input.parent().parent().children('td');
 				
+				$('#id').val(tds.eq(1).html());
 				$('#name').val(tds.eq(2).html());
-				$('#age').val(tds.eq(3).html());
-				var sick = tds.eq(5).html();
-				$('#sick').val(sick=='麻疹'?'mz':sick=='流行性感冒'?'gm':sick=='先天性心脏病'?'xzb':sick=='包虫病'?'bcb':'bnz');
-				$('#home_address').val(tds.eq(4).html());
-				$('#phone').val(tds.eq(6).html());
-				$('#work_address').val(tds.eq(7).html());
-				var scope = tds.eq(8).html();
-				$('#scope').val(scope=='城关区'?'cgq':scope=='堆龙县'?'dlx':scope=='西山区'?'xsq':scope=='五华区'?'whq':'lwxq');
-				
+				var type = tds.eq(3).html();
+				$('#type').val(type=='私立'?'private':'public');
+				$('#address').val(tds.eq(4).html());
+				$('#phone').val(tds.eq(5).html());
+				$('#email').val(tds.eq(6).html());
 			} else {
 				$('#addForm #name').attr('disabled',false);
-				$('#addForm').attr('action','/sickness-system/monitoringManagement/add');
+				$('#addForm').attr('action','/sickness-system/department/add');
+				$('#id').val('');
 				$('#name').val('');
-				$('#age').val('');
-				$('#sick').val('mz');
-				$('#home_address').val('');
+				$('#type').val('public');
+				$('#address').val('');
 				$('#phone').val('');
-				$('#work_address').val('');
-				$('#scope').val('cgq');
+				$('#email').val('');
 			}
 			
 		});
@@ -311,7 +277,7 @@
 					 // 创建Form
 				    var form = $('<form></form>');
 				    // 设置属性
-				    form.attr('action', "/sickness-system/monitoringManagement/del");
+				    form.attr('action', "/sickness-system/department/del");
 				    form.attr('method', 'post');
 //				    // 创建Input
 				    var my_input = $('<input  name="ids" type="text" />');

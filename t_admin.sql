@@ -21,7 +21,7 @@ Date: 2018-06-26 08:06:15
 DROP TABLE [dbo].[t_admin]
 GO
 CREATE TABLE [dbo].[t_admin] (
-[id] int NOT NULL ,
+[id] int NOT NULL IDENTITY(1,1),
 [name] varchar(20) NOT NULL ,
 [password] varchar(36) NOT NULL ,
 [power] int NULL DEFAULT ((0)) 

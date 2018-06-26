@@ -1,9 +1,14 @@
 package dao.impl;
 
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.HashMap;
 import java.util.Map;
 
 import dao.AdminDao;
+import util.DatabaseUtil;
 
 /**
  * @author 作者 pineapple 
@@ -13,11 +18,26 @@ import dao.AdminDao;
  */
 public class AdminDaoImpl implements AdminDao {
 
+	private Connection conn = DatabaseUtil.getConnection();
+	
 	@Override
 	public Map<String, Object> selectAdminByName(String name) {
 		Map<String, Object> map = new HashMap<>();
+		String sql = "select * from t_admin where name=?";
 		
-		map.put("password", "123456");
+		try {
+			PreparedStatement ps = conn.prepareStatement(sql);
+			ps.setString(1, name);
+			ResultSet rs = ps.executeQuery();
+			while(rs.next()) {
+				map.put("id", rs.getString("id"));
+				map.put("name", rs.getString("name"));
+				map.put("password", rs.getString("password"));
+				map.put("power", rs.getInt("power"));
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
 		return map;
 	}
 
