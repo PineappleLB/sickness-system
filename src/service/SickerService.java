@@ -19,4 +19,8 @@ public interface SickerService {
 
 	List<Map<String, Object>> selectSickerCount(String sickType, String scopeType);
 
+	List<Map<String, Object>> selectSickerInfoById(String sel_text, String sel_type);
+
+	List<Map<String, Object>> selectSickerInfoByName(String sel_text, String sel_type);
+
 }

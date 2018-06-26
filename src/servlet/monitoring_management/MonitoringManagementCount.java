@@ -23,6 +23,12 @@ public class MonitoringManagementCount extends HttpServlet {
 	private SickerService service = new SickerServiceImpl();
 
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		//解决中文乱码  
+        resp.setContentType("text/html;charset=utf-8");  
+        //请求解决乱码  
+        req.setCharacterEncoding("utf-8");  
+        //响应解决乱码  
+        resp.setCharacterEncoding("utf-8"); 
 		String sickType = req.getParameter("sick");
 		String scopeType = req.getParameter("scope");
 		List<Map<String, Object>> infos = service.selectSickerCount(sickType, scopeType);

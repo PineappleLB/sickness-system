@@ -45,10 +45,10 @@ public class SickerDaoImpl implements SickerDao {
 	}
 
 	@Override
-	public int updSickerInfo(String name, String age, String home_address, String sick, String phone,
+	public int updSickerInfo(String id, String age, String home_address, String sick, String phone,
 			String work_address, String scope) {
-		String sql = "update t_sicker_info set age=?,home_address=?,sick=?,phone=?,work_address=?,scope=?) " + 
-				"where name=?";
+		String sql = "update t_sicker_info set age=?,home_address=?,sick=?,phone=?,work_address=?,scope=? " + 
+				"where id=?";
 		try {
 			PreparedStatement ps = conn.prepareStatement(sql);
 			ps.setInt(1, Integer.parseInt(age));
@@ -57,7 +57,7 @@ public class SickerDaoImpl implements SickerDao {
 			ps.setString(4, phone);
 			ps.setString(5, work_address);
 			ps.setString(6, scope);
-			ps.setString(7, name);
+			ps.setString(7, id);
 			return ps.executeUpdate();
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -165,6 +165,42 @@ public class SickerDaoImpl implements SickerDao {
 			e.printStackTrace();
 			return null;
 		}
+	}
+
+	@Override
+	public List<Map<String, Object>> selectSickerInfoBy(String sel_text, String sel_type) {
+		String sql = "select * from t_sicker_info where 1=1";
+		if(sel_type!= null && !sel_type.equals("")) {
+			if(sel_type.equals("id")) {
+				sql += " and " + sel_type + " like ?";
+			} else if(sel_type.equals("name")) {
+				sql += " and " + sel_type + " like ?";
+			}
+		}
+		
+		List<Map<String, Object>> infos = new ArrayList<>();
+		try {
+			PreparedStatement ps = conn.prepareStatement(sql);
+			ps.setString(1,  "%"+sel_text+"%");
+			ResultSet rs = ps.executeQuery();
+			while(rs.next()) {
+				Map<String, Object> map = new HashMap<>();
+				map.put("id", rs.getInt("id"));
+				map.put("name", rs.getString("name"));
+				map.put("age", rs.getInt("age"));
+				map.put("home_address", rs.getString("home_address"));
+				map.put("sick", Sick.getSick(rs.getString("sick")));
+				map.put("phone", rs.getString("phone"));
+				map.put("work_address", rs.getString("work_address"));
+				map.put("scope", Scope.getScope(rs.getString("scope")));
+				infos.add(map);
+			}
+			return infos;
+		} catch (SQLException e) {
+			e.printStackTrace();
+			return null;
+		}
+		
 	}
 
 }

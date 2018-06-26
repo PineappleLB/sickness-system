@@ -36,12 +36,14 @@
 								<a href="/sickness-system/monitoringManagement" target="inframe" class="watch-manage">监控管理</a>
 							</li>
 						</c:if>
+						<c:if test="${role=='user' }">
 							<li class="">
 								<a href="regist.jsp" target="_blank">用户注册</a>
 							</li>
 							<li class="">
 								<a href="login.jsp" target="_blank">用户登录</a>
 							</li>
+						</c:if>
 							<li class="">
 								<a href="browse-info.jsp" target="inframe">浏览信息</a>
 							</li>

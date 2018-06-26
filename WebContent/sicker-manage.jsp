@@ -86,16 +86,15 @@
 		<div id="app">
 			<div id="head-nav">
 				<ul class="nav navbar-nav">
-					<li>查询内容：<input type="text" id="date-prev" /> </li>
+					<li>查询内容：<input type="text" id="sel_content" /> </li>
 					<li>
-						<select id="game-type-sel">
-							<option value="all">按病人编号</option>
-							<option value="ddz1">按病人姓名</option>
-							<option value="ddz2">按疾病类型</option>
+						<select id="sel_type">
+							<option value="id">按病人编号</option>
+							<option value="name">按病人姓名</option>
 						</select>
 					</li>
-					<li><button class="btn btn-primary">查询</button></li>
-					<li><button class="btn btn-primary">刷新</button></li>
+					<li><button class="btn btn-primary" onclick="select()">查询</button></li>
+					<li><button class="btn btn-primary" onclick="window.location.href='/sickness-system/sicker'">刷新</button></li>
 				</ul>
 			</div>
 			<div id="center-nav">
@@ -135,18 +134,6 @@
 									<td>${info.scope }</td>
 								</tr>
 							</c:forEach>
-							<tr>
-								<td><input type="checkbox" class="checkbox" /></td>
-								<td>1</td>
-								<td>1</td>
-								<td>1</td>
-								<td>1</td>
-								<td>1</td>
-								<td>1</td>
-								<td>1</td>
-								<td>1</td>
-							</tr>
-							
 
 						</tbody>
 					</table>
@@ -164,6 +151,9 @@
 							<h4 class="modal-title" id="myModalLabel">新增病人信息</h4>
 						</div>
 						<div class="modal-body" style="text-align:center;">
+							<div class="form-group">
+								<input type="hidden" id="id" name="id" />
+							</div>
 							<div class="form-group">
 								<label for="name">姓名：</label>
 								<input type="text" id="name" name="name" />
@@ -270,7 +260,7 @@
 					return;
 				}
 				var tds = input.parent().parent().children('td');
-				
+				$('#id').val(tds.eq(1).html());
 				$('#name').val(tds.eq(2).html());
 				$('#age').val(tds.eq(3).html());
 				var sick = tds.eq(5).html();
@@ -323,6 +313,29 @@
 				    form.submit();
 				}
 			}
+		}
+		
+		function select(){
+			var text = $('#sel_content').val();
+			var sel_type = $('#sel_type').val();
+			// 创建Form
+		    var form = $('<form></form>');
+			// 设置属性
+	    	form.attr('action', "/sickness-system/sickerManager/sel");
+		    form.attr('method', 'post');
+		    // 创建Input
+		    var my_input1 = $('<input  name="sel_text" type="text" />');
+		    my_input1.attr('value',  text);
+		    // 附加到Form
+		    form.append(my_input1);
+		     // 创建Input
+		    var my_input2 = $('<input  name="sel_type" type="text" />');
+		    my_input2.attr('value',  sel_type);
+		    // 附加到Form
+		    form.append(my_input2);
+		    $(document.body).append(form);
+		    // 提交表单
+		    form.submit();
 		}
 		
 	</script>

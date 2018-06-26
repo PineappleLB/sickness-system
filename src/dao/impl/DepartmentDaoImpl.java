@@ -27,7 +27,7 @@ public class DepartmentDaoImpl implements DepartmentDao {
 				Map<String, Object> m = new HashMap<>();
 				m.put("department_id", rs.getInt("department_id"));
 				m.put("department_name", rs.getString("department_name"));
-				m.put("department_type", rs.getString("department_type"));
+				m.put("department_type", rs.getString("department_type").equals("public")?"公立":"私立");
 				m.put("department_address", rs.getString("department_address"));
 				m.put("phone", rs.getString("phone"));
 				m.put("email", rs.getString("email"));

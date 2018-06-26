@@ -25,6 +25,7 @@ public class UserDaoImpl implements UserDao {
 		Map<String, Object> map = new HashMap<>();
 		try {
 			PreparedStatement ps = conn.prepareStatement(sql);
+			ps.setString(1, name);
 			ResultSet rs = ps.executeQuery();
 			while(rs.next()) {
 				map.put("username", rs.getString("username"));

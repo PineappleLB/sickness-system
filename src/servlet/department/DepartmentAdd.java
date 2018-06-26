@@ -20,6 +20,12 @@ public class DepartmentAdd extends HttpServlet {
 	private DepartmentService service = new DepartmentServiceImpl();
 
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		//解决中文乱码  
+        resp.setContentType("text/html;charset=utf-8");  
+        //请求解决乱码  
+        req.setCharacterEncoding("utf-8");  
+        //响应解决乱码  
+        resp.setCharacterEncoding("utf-8"); 
 		String name = req.getParameter("name");
 		String type = req.getParameter("type");
 		String phone = req.getParameter("phone");

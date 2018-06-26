@@ -111,7 +111,7 @@
 						<input type="radio" name="selType" value="count" id="count" checked="ckecked" /><label for="count"> 查询统计结果</label>
 					</li>
 					<li><button class="btn btn-primary" onclick="selectInfo()">查询</button></li>
-					<li><button class="btn btn-primary">刷新</button></li>
+					<li><button class="btn btn-primary" onclick="window.location.href='/sickness-system/sicker'">刷新</button></li>
 				</ul>
 			</div>
 			<div id="content-table">

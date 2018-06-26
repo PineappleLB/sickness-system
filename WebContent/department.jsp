@@ -95,7 +95,7 @@
 						</select>
 					</li>
 					<li><button class="btn btn-primary">查询</button></li>
-					<li><button class="btn btn-primary">刷新</button></li>
+					<li><button class="btn btn-primary" onclick="window.location.href='/sickness-system/department'">刷新</button></li>
 				</ul>
 			</div>
 			<div id="center-nav">
@@ -228,7 +228,6 @@
 		$("#myModal").on("show.bs.modal",function(e){
 			var source = $(e.relatedTarget);
 			if(source.attr('id')=='updBtn') {
-				$('#addForm #name').attr('disabled',true);
 				$('#addForm').attr('action','/sickness-system/department/upd');
 				var input = $('#table-div table tbody input[type=checkbox]:checked');
 				if(input.length > 1){
@@ -249,7 +248,6 @@
 				$('#phone').val(tds.eq(5).html());
 				$('#email').val(tds.eq(6).html());
 			} else {
-				$('#addForm #name').attr('disabled',false);
 				$('#addForm').attr('action','/sickness-system/department/add');
 				$('#id').val('');
 				$('#name').val('');

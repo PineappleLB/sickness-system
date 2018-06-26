@@ -23,6 +23,12 @@ public class SickerManager extends HttpServlet {
 	private SickerService service = new SickerServiceImpl();
 
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		//解决中文乱码  
+        resp.setContentType("text/html;charset=utf-8");  
+        //请求解决乱码  
+        req.setCharacterEncoding("utf-8");  
+        //响应解决乱码  
+        resp.setCharacterEncoding("utf-8"); 
 		List<Map<String, Object>> infos = service.selectAllSickerInfo();
 		req.getSession().setAttribute("infos", infos);
 		resp.sendRedirect("/sickness-system/sicker-manage.jsp");

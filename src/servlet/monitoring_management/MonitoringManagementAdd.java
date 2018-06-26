@@ -25,6 +25,12 @@ public class MonitoringManagementAdd extends HttpServlet {
 
 	
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		//解决中文乱码  
+        resp.setContentType("text/html;charset=utf-8");  
+        //请求解决乱码  
+        req.setCharacterEncoding("utf-8");  
+        //响应解决乱码  
+        resp.setCharacterEncoding("utf-8"); 
 		String name = req.getParameter("name");
 		String age = req.getParameter("age");
 		String home_address = req.getParameter("home_address");
@@ -38,7 +44,7 @@ public class MonitoringManagementAdd extends HttpServlet {
 		} else {
 			req.getSession().setAttribute("msg", "添加失败！");
 		}
-		resp.sendRedirect("/sickness-system/monitoringManagement");
+		resp.sendRedirect("/sickness-system/sicker");
 	}
 
 }

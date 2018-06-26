@@ -24,9 +24,9 @@ public class SickerServiceImpl implements SickerService {
 	}
 
 	@Override
-	public int updSickerInfo(String name, String age, String home_address, String sick, String phone,
+	public int updSickerInfo(String id, String age, String home_address, String sick, String phone,
 			String work_address, String scope) {
-		return dao.updSickerInfo(name, age, home_address, sick, phone,
+		return dao.updSickerInfo(id, age, home_address, sick, phone,
 				work_address, scope);
 	}
 
@@ -43,6 +43,16 @@ public class SickerServiceImpl implements SickerService {
 	@Override
 	public List<Map<String, Object>> selectSickerCount(String sickType, String scopeType) {
 		return dao.selectSickerCount(sickType, scopeType);
+	}
+
+	@Override
+	public List<Map<String, Object>> selectSickerInfoById(String sel_text, String sel_type) {
+		return dao.selectSickerInfoBy(sel_text, sel_type);
+	}
+
+	@Override
+	public List<Map<String, Object>> selectSickerInfoByName(String sel_text, String sel_type) {
+		return dao.selectSickerInfoBy(sel_text, sel_type);
 	}
 
 }

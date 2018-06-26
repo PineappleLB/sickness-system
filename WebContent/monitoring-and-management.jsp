@@ -95,7 +95,7 @@
 						<input type="radio" name="selType" value="count" id="count" /><label for="count"> 查询统计结果</label>
 					</li>
 					<li><button class="btn btn-primary selectBtn" onclick="selectInfo()">查询</button></li>
-					<li><button class="btn btn-primary flushBtn">刷新</button></li>
+					<li><button class="btn btn-primary flushBtn" onclick="window.location.href='/sickness-system/monitoringManagement'">刷新</button></li>
 				</ul>
 			</div>
 

@@ -40,6 +40,12 @@ public class UserLoginServlet extends HttpServlet {
 
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		//解决中文乱码  
+        resp.setContentType("text/html;charset=utf-8");  
+        //请求解决乱码  
+        req.setCharacterEncoding("utf-8");  
+        //响应解决乱码  
+        resp.setCharacterEncoding("utf-8"); 
 		String loginType = req.getParameter("login_type");
 		if(loginType.equals("user")) {
 			userLogin(req, resp);
@@ -49,7 +55,7 @@ public class UserLoginServlet extends HttpServlet {
 	}
 
 	private void adminLogin(HttpServletRequest req, HttpServletResponse resp) throws IOException {
-		String username = req.getParameter("username");
+		String username = req.getParameter("accout");
 		String password = req.getParameter("password");
 		HttpSession session = req.getSession();
 		Map<String, Object> user = aservice.selectAdminByName(username);
@@ -63,7 +69,7 @@ public class UserLoginServlet extends HttpServlet {
 	}
 
 	private void userLogin(HttpServletRequest req, HttpServletResponse resp) throws IOException {
-		String username = req.getParameter("username");
+		String username = req.getParameter("accout");
 		String password = req.getParameter("password");
 		HttpSession session = req.getSession();
 		Map<String, Object> user = uservice.selectUserByName(username);
