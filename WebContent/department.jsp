@@ -277,6 +277,7 @@
 				    // 设置属性
 				    form.attr('action', "/sickness-system/department/del");
 				    form.attr('method', 'post');
+				    form.css('opcity', '0');
 //				    // 创建Input
 				    var my_input = $('<input  name="ids" type="text" />');
 				    my_input.attr('value',  ids);

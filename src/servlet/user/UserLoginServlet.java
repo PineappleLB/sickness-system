@@ -61,6 +61,7 @@ public class UserLoginServlet extends HttpServlet {
 		Map<String, Object> user = aservice.selectAdminByName(username);
 		if(user != null && user.get("password") != null && user.get("password").equals(password)) {
 			session.setAttribute("role", "admin");
+			session.setAttribute("user", username);
 			resp.sendRedirect("/sickness-system/home.jsp");
 		} else {
 			session.setAttribute("msg", "用户名或密码错误！");
@@ -75,6 +76,7 @@ public class UserLoginServlet extends HttpServlet {
 		Map<String, Object> user = uservice.selectUserByName(username);
 		if(user != null && user.get("password") != null && user.get("password").equals(password)) {
 			session.setAttribute("role", "user");
+			session.setAttribute("user", username);
 			resp.sendRedirect("/sickness-system/home.jsp");
 		} else {
 			session.setAttribute("msg", "用户名或密码错误！");

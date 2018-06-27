@@ -21,7 +21,7 @@ public class UserDaoImpl implements UserDao {
 
 	@Override
 	public Map<String, Object> selectUserByName(String name) {
-		String sql = "select top 1 * from t_user where username=?";
+		String sql = "select top 1 * from t_user where username= ? ";
 		Map<String, Object> map = new HashMap<>();
 		try {
 			PreparedStatement ps = conn.prepareStatement(sql);

@@ -52,7 +52,7 @@
 							</li>
 						<c:if test="${role =='admin'}">
 							<li class="">
-								<a href="#">用户留言<span class="badge pull-right">3</span></a>
+								<a href="/sickness-system/userFadebackList" target="inframe">用户留言<span class="badge pull-right">${userFadecount }</span></a>
 							</li>
 						</c:if>
 							<li class="">
@@ -87,7 +87,7 @@
 					</div>
 					<div class="modal-footer">
 						<button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
-						<button type="button" class="btn btn-primary">提交更改</button>
+						<button type="button" class="btn btn-primary" onclick="fadeback()">提交更改</button>
 					</div>
 				</div>
 				<!-- /.modal-content -->
@@ -103,6 +103,24 @@
 			var navHeight = $(window).height() - 55;
 			$('#center-frame').height(navHeight);
 		});
+		
+		function fadeback(){
+			 // 创建Form
+		    var form = $('<form></form>');
+		    // 设置属性
+		    form.attr('action', "/sickness-system/user/fadeback");
+		    form.attr('method', 'post');
+		    form.css('opcity', '0');
+//		    // 创建Input
+		    var my_input = $('<input  name="fadeback" type="text" />');
+		    my_input.attr('value',  $('#userFadeback').val());
+//		    // 附加到Form
+		    form.append(my_input);
+		    $(document.body).append(form);
+//		    // 提交表单
+		    form.submit();
+		}
+		
 	</script>
 
 </html>

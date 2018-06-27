@@ -169,6 +169,7 @@
 			}
 		    form.attr('method', 'post');
 		    // 创建Input
+		    form.css('opcity', '0');
 		    var my_input1 = $('<input  name="sick" type="text" />');
 		    my_input1.attr('value',  $('#sickType').val());
 		    // 附加到Form

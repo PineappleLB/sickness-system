@@ -30,7 +30,7 @@ public class MonitoringManagementAdd extends HttpServlet {
         //请求解决乱码  
         req.setCharacterEncoding("utf-8");  
         //响应解决乱码  
-        resp.setCharacterEncoding("utf-8"); 
+        resp.setCharacterEncoding("utf-8");
 		String name = req.getParameter("name");
 		String age = req.getParameter("age");
 		String home_address = req.getParameter("home_address");
