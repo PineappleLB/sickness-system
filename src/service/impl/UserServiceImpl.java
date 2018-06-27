@@ -1,5 +1,6 @@
 package service.impl;
 
+import java.util.List;
 import java.util.Map;
 
 import dao.UserDao;
@@ -25,6 +26,31 @@ public class UserServiceImpl implements UserService {
 	public int userRegist(String name, String password, String sex, String age, String email, String phone,
 			String home_addr, String work_addr) {
 		return dao.userRegist(name, password, sex, age, email, phone, home_addr, work_addr);
+	}
+
+	@Override
+	public int addUserFadeBack(String user, String fade) {
+		return dao.addUserFadeBack(user, fade);
+	}
+
+	@Override
+	public int selectFadeBackCount() {
+		return dao.selectFadeBackCount();
+	}
+
+	@Override
+	public int deleteUserFadeback(String[] names) {
+		return dao.deleteUserFadeback(names);
+	}
+
+	@Override
+	public List<Map<String, String>> selectFadeBackList() {
+		return dao.selectFadeBackList();
+	}
+
+	@Override
+	public int updateFadeListInfo(String name, String fadeback) {
+		return dao.updateFadeListInfo(name, fadeback);
 	}
 
 }

@@ -1,8 +1,6 @@
 package servlet.user;
 
 import java.io.IOException;
-import java.util.List;
-import java.util.Map;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -10,14 +8,18 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import service.UserService;
+import service.impl.UserServiceImpl;
+
 /**
  * Servlet implementation class UserFadebackDel
  */
 @WebServlet(name = "user/fadeback/del", urlPatterns = { "/user/fadeback/del" })
 public class UserFadebackDel extends HttpServlet {
 	private static final long serialVersionUID = 1L;
+	
+	private UserService service = new UserServiceImpl();
 
-	@SuppressWarnings("unchecked")
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		// 解决中文乱码
 		resp.setContentType("text/html;charset=utf-8");
@@ -27,10 +29,9 @@ public class UserFadebackDel extends HttpServlet {
 		resp.setCharacterEncoding("utf-8");
 		int result = 0;
 		try {
-			String name = req.getParameter("names");
+			String name = req.getParameter("ids");
 			String[] names = name.split(",");
-			result = deleteFadeListInfo(names,
-					(List<Map<String, String>>) req.getServletContext().getAttribute("userFadeList"));
+			result = service.deleteUserFadeback(names);
 		} catch (Exception e) {
 			e.printStackTrace();
 			result = 0;
@@ -43,25 +44,6 @@ public class UserFadebackDel extends HttpServlet {
 		}
 		resp.sendRedirect("/sickness-system/userFadebackList");
 
-	}
-
-	private int deleteFadeListInfo(String[] names, List<Map<String, String>> attribute) {
-		int count = 0;
-		if(attribute == null) {
-			return 0;
-		}
-		for (int i = 0; i < names.length; i++) {
-			if (names[i] == null || names[i].equals("")) {
-				continue;
-			}
-			for (int j = attribute.size() - 1; j >= 0; j--) {
-				if (attribute.get(j).get("user").equals(names[i])) {
-					attribute.remove(attribute.get(j));
-					count++;
-				}
-			}
-		}
-		return count;
 	}
 
 }

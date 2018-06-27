@@ -1,14 +1,15 @@
 package servlet.user;
 
 import java.io.IOException;
-import java.util.List;
-import java.util.Map;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
+import service.UserService;
+import service.impl.UserServiceImpl;
 
 /**
  * Servlet implementation class UserFadebackUpd
@@ -17,7 +18,8 @@ import javax.servlet.http.HttpServletResponse;
 public class UserFadebackUpd extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	
-	@SuppressWarnings("unchecked")
+	private UserService service = new UserServiceImpl();
+
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		//解决中文乱码  
         resp.setContentType("text/html;charset=utf-8");  
@@ -26,15 +28,10 @@ public class UserFadebackUpd extends HttpServlet {
         //响应解决乱码  
         resp.setCharacterEncoding("utf-8"); 
         
-        String name = req.getParameter("name");
+        String id = req.getParameter("id");
         String fadeback = req.getParameter("fadeback");
         int result = 0;
-        try {
-        	 result = updateFadeListInfo(name, fadeback, (List<Map<String,String>>)req.getServletContext().getAttribute("userFadeList")); 
-		} catch (Exception e) {
-			e.printStackTrace();
-			result = 0;
-		}
+    	result = service.updateFadeListInfo(id, fadeback); 
        
 		if(result > 0) {
 			req.getSession().setAttribute("msg", "更新成功！");
@@ -43,18 +40,4 @@ public class UserFadebackUpd extends HttpServlet {
 		}
 		resp.sendRedirect("/sickness-system/userFadebackList");
 	}
-
-	private int updateFadeListInfo(String name, String fadeback, List<Map<String, String>> fadeList) {
-		if(fadeList == null || fadeList.isEmpty()) {
-			return 0;
-		}
-		for (Map<String, String> map : fadeList) {
-			if(map.get("user").equals(name)) {
-				map.put("fadeback", fadeback);
-				return 1;
-			}
-		}
-		return 0;
-	}
-
 }

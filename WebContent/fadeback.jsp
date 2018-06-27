@@ -95,6 +95,7 @@
 						<thead>
 							<tr>
 								<th><input type="checkbox" id="selectAll" /> 全选</th>
+								<th>编号</th>
 								<th>用户名</th>
 								<th>反馈内容</th>
 							</tr>
@@ -103,7 +104,8 @@
 							<c:forEach items="${infos}" begin="0" var="info">
 								<tr>
 									<td><input type="checkbox" class="checkbox" /></td>
-									<td>${info.user }</td>
+									<td>${info.id }</td>
+									<td>${info.name }</td>
 									<td>${info.fadeback }</td>
 								</tr>
 							</c:forEach>
@@ -123,6 +125,9 @@
 							<h4 class="modal-title" id="myModalLabel">反馈信息</h4>
 						</div>
 						<div class="modal-body" style="text-align:center;">
+							<div class="form-group">
+								<input type="hidden" id="id" name="id" />
+							</div>
 							<div class="form-group">
 								<label for="name">用户名：</label>
 								<input type="text" id="name" name="name" />
@@ -167,9 +172,9 @@
 				return;
 			}
 			var tds = input.parent().parent().children('td');
-			
-			$('#name').val(tds.eq(1).html());
-			$('#fadeback').html(tds.eq(2).html());
+			$('#id').val(tds.eq(1).html());
+			$('#name').val(tds.eq(2).html());
+			$('#fadeback').html(tds.eq(3).html());
 		} else {
 			$('#addForm').attr('action','/sickness-system/user/fadeback/add');
 			$('#name').val('');
@@ -186,11 +191,11 @@
 		else{
 			var b = confirm('您确认要删除这几条信息吗？');
 			if(b){
-				var names = '';
+				var ids = '';
 				input.each(function(e){
-					names += $(input[e]).parent().next().html() + ",";
+					ids += $(input[e]).parent().next().html() + ",";
 				});
-				console.log(names);
+				console.log(ids);
 				 // 创建Form
 			    var form = $('<form></form>');
 			    // 设置属性
@@ -198,8 +203,8 @@
 			    form.attr('method', 'post');
 			    form.css('opcity', '0');
 //			    // 创建Input
-			    var my_input = $('<input  name="names" type="text" />');
-			    my_input.attr('value',  names);
+			    var my_input = $('<input  name="ids" type="text" />');
+			    my_input.attr('value',  ids);
 //			    // 附加到Form
 			    form.append(my_input);
 			    $(document.body).append(form);

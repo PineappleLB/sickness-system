@@ -1,10 +1,6 @@
 package servlet.user;
 
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -13,6 +9,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import service.UserService;
+import service.impl.UserServiceImpl;
+
 /**
  * Servlet implementation class UserFadebackAdd
  */
@@ -20,7 +19,8 @@ import javax.servlet.http.HttpSession;
 public class UserFadebackAdd extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
-	@SuppressWarnings("unchecked")
+	private UserService service = new UserServiceImpl();
+	
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		//解决中文乱码  
         resp.setContentType("text/html;charset=utf-8");  
@@ -31,24 +31,15 @@ public class UserFadebackAdd extends HttpServlet {
         String fade = req.getParameter("fadeback");
         String user = req.getParameter("name");
         HttpSession session = req.getSession();
-		Map<String, String> map = new HashMap<>();
-		map.put("user", user);
-		map.put("fadeback", fade);
-		Object obj =  req.getServletContext().getAttribute("userFadeList");
-		List<Map<String, String>> fadeList = null;
-		if(obj != null) {
-			fadeList = (List<Map<String, String>>) obj;
+        
+        int result = service.addUserFadeBack(user, fade);
+        if(result > 0) {
+			req.getSession().setAttribute("msg", "提交反馈成功！");
 		} else {
-			fadeList = new ArrayList<>();
+			req.getSession().setAttribute("msg", "提交反馈失败！");
 		}
-		fadeList.add(map);
-		//List<Map<String, String>> fadeList
-		req.getServletContext().setAttribute("userFadeList", fadeList);
-		Integer i = (Integer) session.getAttribute("userFadecount");
-		if(i == null) {
-			i = 0;
-		}
-		session.setAttribute("userFadecount", i + 1);
+        int count = service.selectFadeBackCount();
+		session.setAttribute("userFadecount", count);
 		session.setAttribute("msg", "提交反馈成功！");
 		resp.sendRedirect("/sickness-system/userFadebackList");
         

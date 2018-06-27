@@ -1,5 +1,6 @@
 package dao;
 
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -19,5 +20,15 @@ public interface UserDao {
 
 	int userRegist(String name, String password, String sex, String age, String email, String phone, String home_addr,
 			String work_addr);
+
+	int addUserFadeBack(String user, String fade);
+
+	int selectFadeBackCount();
+
+	int deleteUserFadeback(String[] names);
+
+	List<Map<String, String>> selectFadeBackList();
+
+	int updateFadeListInfo(String name, String fadeback);
 
 }
