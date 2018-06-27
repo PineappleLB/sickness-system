@@ -27,10 +27,10 @@ public class DatabaseUtil {
 	}
 	
 	private static Connection connection() throws ClassNotFoundException, SQLException {
-		String strUrl="jdbc:sqlserver://127.0.0.1:1433;DatabaseName=sicknessSystem";
+		String strUrl="jdbc:sqlserver://localhost:1433;integratedSecurity=true;DatabaseName=sicknessSystem";
 
         Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
-        Connection conn = DriverManager.getConnection(strUrl,"sa","123456");
+        Connection conn = DriverManager.getConnection(strUrl);
 		return conn;
 	}
 	public static void main(String[] args) {

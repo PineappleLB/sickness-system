@@ -58,6 +58,9 @@
 							<li class="">
 								<a href="#">关于我们</a>
 							</li>
+							<li class="">
+								<a href="login.jsp" target="_self">注销</a>
+							</li>
 						</ul>
 					</nav>
 				</div>
