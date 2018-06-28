@@ -84,20 +84,6 @@
 
 	<body>
 		<div id="app">
-			<div id="head-nav">
-				<ul class="nav navbar-nav">
-					<li>查询内容：<input type="text" id="date-prev" /> </li>
-					<li>
-						<select id="game-type-sel">
-							<option value="all">按病人编号</option>
-							<option value="ddz1">按病人姓名</option>
-							<option value="ddz2">按疾病类型</option>
-						</select>
-					</li>
-					<li><button class="btn btn-primary">查询</button></li>
-					<li><button class="btn btn-primary" onclick="window.location.href='/sickness-system/department'">刷新</button></li>
-				</ul>
-			</div>
 			<div id="center-nav">
 				<ul class="nav navbar-nav">
 					<li><button class="btn btn-success" data-toggle="modal" data-target="#myModal">新增</button></li>
