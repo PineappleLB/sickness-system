@@ -1,0 +1,414 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="86ace026-56d5-4dad-bd0f-7c6f8c42e6e5" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/SickNess-APP/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/SickNess-Dao/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/config-overrides.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/../.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.settings/.jsdtscope" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.settings/org.eclipse.core.resources.prefs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.settings/org.eclipse.jdt.core.prefs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.settings/org.eclipse.wst.common.component" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.settings/org.eclipse.wst.common.project.facet.core.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.settings/org.eclipse.wst.jsdt.ui.superType.container" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.settings/org.eclipse.wst.jsdt.ui.superType.name" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../WebContent/META-INF/MANIFEST.MF" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../WebContent/WEB-INF/lib/sqljdbc4-4.0.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../WebContent/WEB-INF/lib/taglibs-standard-compat-1.2.5.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../WebContent/WEB-INF/lib/taglibs-standard-impl-1.2.5.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../WebContent/WEB-INF/lib/taglibs-standard-jstlel-1.2.5.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../WebContent/WEB-INF/lib/taglibs-standard-spec-1.2.5.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../WebContent/WEB-INF/web.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../WebContent/browse-info.jsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../WebContent/css/bootstrap.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../WebContent/department.jsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../WebContent/fadeback.jsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../WebContent/fonts/glyphicons-halflings-regular.eot" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../WebContent/fonts/glyphicons-halflings-regular.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../WebContent/fonts/glyphicons-halflings-regular.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../WebContent/fonts/glyphicons-halflings-regular.woff" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../WebContent/fonts/glyphicons-halflings-regular.woff2" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../WebContent/home-frame.jsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../WebContent/home.jsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../WebContent/img/1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../WebContent/img/10.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../WebContent/img/11.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../WebContent/img/12.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../WebContent/img/2.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../WebContent/img/3.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../WebContent/img/4.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../WebContent/img/5.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../WebContent/img/6.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../WebContent/img/7.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../WebContent/img/8.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../WebContent/img/9.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../WebContent/img/back.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../WebContent/img/pic1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../WebContent/img/pic2.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../WebContent/img/pic3.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../WebContent/img/pic4.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../WebContent/img/pic5.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../WebContent/index.jsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../WebContent/js/bootstrap.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../WebContent/js/jquery-2.1.0.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../WebContent/js/jquery.validate.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../WebContent/js/messages_zh.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../WebContent/js/vue.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../WebContent/login.jsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../WebContent/monitoring-and-management.jsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../WebContent/regist.jsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../WebContent/sicker-count.jsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../WebContent/sicker-manage.jsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/dao/AdminDao.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/dao/DepartmentDao.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/dao/SickDao.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/dao/SickerDao.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/dao/UserDao.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/dao/impl/AdminDaoImpl.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/dao/impl/DepartmentDaoImpl.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/dao/impl/SickDaoImpl.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/dao/impl/SickerDaoImpl.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/dao/impl/UserDaoImpl.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/entity/User.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/service/AdminService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/service/DepartmentService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/service/SickService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/service/SickerService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/service/UserService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/service/impl/AdminServiceImpl.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/service/impl/DepartmentServiceImpl.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/service/impl/SickServiceImpl.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/service/impl/SickerServiceImpl.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/service/impl/UserServiceImpl.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/servlet/admin/AdminLoginServlet.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/servlet/department/Department.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/servlet/department/DepartmentAdd.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/servlet/department/DepartmentDel.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/servlet/department/DepartmentUpd.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/servlet/monitoring_management/MonitoringManagement.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/servlet/monitoring_management/MonitoringManagementAdd.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/servlet/monitoring_management/MonitoringManagementCount.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/servlet/monitoring_management/MonitoringManagementDel.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/servlet/monitoring_management/MonitoringManagementUpd.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/servlet/sicker/SickerManager.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/servlet/sicker/SickerManagerSel.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/servlet/user/UserFadeback.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/servlet/user/UserFadebackAdd.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/servlet/user/UserFadebackDel.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/servlet/user/UserFadebackList.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/servlet/user/UserFadebackUpd.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/servlet/user/UserLoginServlet.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/servlet/user/UserRegist.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/util/DatabaseUtil.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/util/Scope.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/util/Sick.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../t_admin.sql" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../t_department_info.sql" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../t_fadeback.sql" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../t_sicker_info.sql" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../t_user.sql" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../test.sql" beforeDir="false" />
+    </list>
+    <ignored path="$PROJECT_DIR$/out/" />
+    <ignored path="$PROJECT_DIR$/target/" />
+    <ignored path="$PROJECT_DIR$/SickNess-APP/target/" />
+    <ignored path="$PROJECT_DIR$/SickNess-Dao/target/" />
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FUSProjectUsageTrigger">
+    <session id="-63906984">
+      <usages-collector id="statistics.lifecycle.project">
+        <counts>
+          <entry key="project.open.time.2" value="1" />
+          <entry key="project.opened" value="1" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.extensions.edit">
+        <counts>
+          <entry key="js" value="12" />
+          <entry key="xml" value="13" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.types.edit">
+        <counts>
+          <entry key="JavaScript" value="12" />
+          <entry key="XML" value="13" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.extensions.open">
+        <counts>
+          <entry key="js" value="2" />
+          <entry key="json" value="1" />
+          <entry key="xml" value="2" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.types.open">
+        <counts>
+          <entry key="JSON" value="1" />
+          <entry key="JavaScript" value="2" />
+          <entry key="XML" value="2" />
+        </counts>
+      </usages-collector>
+    </session>
+  </component>
+  <component name="FileEditorManager">
+    <leaf>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/pom.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="255">
+              <caret line="16" selection-start-line="16" selection-end-line="16" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/SickNess-APP/pom.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="204">
+              <caret line="12" lean-forward="true" selection-start-line="12" selection-end-line="12" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/SickNess-Dao/pom.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="476">
+              <caret line="28" selection-start-line="28" selection-end-line="28" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+  </component>
+  <component name="FindInProjectRecents">
+    <dirStrings>
+      <dir>F:\GIT\sickness-system\SickNess\WebApp</dir>
+    </dirStrings>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/pom.xml" />
+        <option value="$PROJECT_DIR$/SickNess-APP/pom.xml" />
+        <option value="$PROJECT_DIR$/SickNess-Dao/pom.xml" />
+        <option value="$PROJECT_DIR$/WebApp/config-overrides.js" />
+      </list>
+    </option>
+  </component>
+  <component name="JsBuildToolGruntFileManager" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsBuildToolPackageJson" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsGulpfileManager">
+    <detection-done>true</detection-done>
+    <sorting>DEFINITION_ORDER</sorting>
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="importingSettings">
+      <MavenImportingSettings>
+        <option name="importAutomatically" value="true" />
+      </MavenImportingSettings>
+    </option>
+  </component>
+  <component name="NodePackageJsonFileManager">
+    <packageJsonPaths>
+      <path value="$PROJECT_DIR$/WebApp/package.json" />
+    </packageJsonPaths>
+  </component>
+  <component name="ProjectFrameBounds" extendedState="7">
+    <option name="x" value="-1928" />
+    <option name="y" value="-278" />
+    <option name="width" value="1936" />
+    <option name="height" value="1066" />
+  </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectView">
+    <navigator proportions="" version="1">
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="SickNess" type="b2602c69:ProjectViewProjectNode" />
+              <item name="SickNess" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="SickNess" type="b2602c69:ProjectViewProjectNode" />
+              <item name="SickNess" type="462c0819:PsiDirectoryNode" />
+              <item name="SickNess-Dao" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="SickNess" type="b2602c69:ProjectViewProjectNode" />
+              <item name="SickNess" type="462c0819:PsiDirectoryNode" />
+              <item name="SickNess-Dao" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="SickNess" type="b2602c69:ProjectViewProjectNode" />
+              <item name="SickNess" type="462c0819:PsiDirectoryNode" />
+              <item name="WebApp" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+      <pane id="PackagesPane" />
+      <pane id="AndroidView" />
+      <pane id="Scope" />
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1551678250545" />
+    <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
+    <property name="nodejs_npm_path_reset_for_default_project" value="true" />
+    <property name="settings.editor.selected.configurable" value="preferences.fileTypes" />
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="86ace026-56d5-4dad-bd0f-7c6f8c42e6e5" name="Default Changelist" comment="" />
+      <created>1551676682409</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1551676682409</updated>
+      <workItem from="1551676685340" duration="1551000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TimeTrackingManager">
+    <option name="totallyTimeSpent" value="1551000" />
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="-1928" y="-278" width="1936" height="1066" extended-state="7" />
+    <editor active="true" />
+    <layout>
+      <window_info id="Designer" />
+      <window_info id="Image Layers" />
+      <window_info id="UI Designer" />
+      <window_info id="Favorites" side_tool="true" />
+      <window_info id="Capture Tool" />
+      <window_info id="Web" side_tool="true" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.25" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info anchor="bottom" id="Spring" />
+      <window_info anchor="bottom" id="Terminal" weight="0.32939914" />
+      <window_info anchor="bottom" id="Event Log" side_tool="true" />
+      <window_info anchor="bottom" id="Java Enterprise" />
+      <window_info anchor="bottom" id="Database Changes" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Version Control" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Find" order="1" />
+      <window_info anchor="bottom" id="Run" order="2" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="right" id="Palette" />
+      <window_info anchor="right" id="Capture Analysis" />
+      <window_info anchor="right" id="Maven Projects" />
+      <window_info anchor="right" id="Database" />
+      <window_info anchor="right" id="Palette&#9;" />
+      <window_info anchor="right" id="Theme Preview" />
+      <window_info anchor="right" id="Bean Validation" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+    </layout>
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="VcsContentAnnotationSettings">
+    <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="16" selection-start-line="16" selection-end-line="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/SickNess-Dao/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="476">
+          <caret line="28" selection-start-line="28" selection-end-line="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/WebApp/package.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="8" column="23" lean-forward="true" selection-start-line="8" selection-start-column="23" selection-end-line="8" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/WebApp/config-overrides.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="2" column="26" lean-forward="true" selection-start-line="2" selection-start-column="26" selection-end-line="2" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/SickNess-APP/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="12" lean-forward="true" selection-start-line="12" selection-end-line="12" />
+        </state>
+      </provider>
+    </entry>
+  </component>
+  <component name="masterDetails">
+    <states>
+      <state key="ProjectJDKs.UI">
+        <settings>
+          <last-edited>1.8</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ScopeChooserConfigurable.UI">
+        <settings>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+    </states>
+  </component>
+</project>
