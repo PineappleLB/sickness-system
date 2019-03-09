@@ -18,7 +18,7 @@ CREATE TABLE `t_department_info`(
   PRIMARY KEY (`id`)
 ) COMMENT '部门表' ENGINE=INNODB CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
-CREATE TABLE `t_sick` (
+CREATE TABLE `t_sick_type` (
   `id` int(11) NOT NULL AUTO_INCREMENT COMMENT '疾病id',
   `sick_name` varchar(50) COLLATE utf8_unicode_ci NOT NULL COMMENT '疾病名称',
   `sick_type` tinyint(1) NOT NULL DEFAULT '1' COMMENT '疾病类型（1普通疾病，2传染疾病）',
@@ -57,4 +57,26 @@ CREATE TABLE `t_doctor` (
   PRIMARY KEY (`id`)
 ) COMMENT '医生信息表' ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
+CREATE TABLE `t_user_sick`(
+  `id` INT(11) NOT NULL AUTO_INCREMENT,
+  `sick_id` INT(11) NOT NULL COMMENT '疾病表中编号',
+  `status` INT(1) NOT NULL DEFAULT 0 COMMENT '审核状态（0未审核，1已通过，2未通过）',
+  `user_id` INT(11) COMMENT '用户id',
+  `record` VARCHAR(200) COMMENT '备注',
+  PRIMARY KEY (`id`)
+) COMMENT '用户疾病上传表' ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+CREATE TABLE `t_sick_info`(
+  `id` INT(11) NOT NULL AUTO_INCREMENT COMMENT '病人信息表id',
+  `sick_guid` VARCHAR(50) NOT NULL COMMENT '病人编号',
+  `name` VARCHAR(50) NOT NULL COMMENT '病人姓名',
+  `age` INT(3) NOT NULL COMMENT '病人年龄',
+  `gender` TINYINT(1) NOT NULL DEFAULT 1 COMMENT '用户性别（1男，2女）',
+  `sick_id` INT(11) NOT NULL COMMENT '所患疾病id',
+  `contact` VARCHAR(11) COMMENT '联系方式',
+  `home_address` VARCHAR(50) COMMENT '家庭住址',
+  `work_address` VARCHAR(50) COMMENT '工作地址',
+  `area_id` INT(11) NOT NULL COMMENT '活动范围',
+  PRIMARY KEY (`id`)
+) COMMENT '病人信息表' ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
