@@ -1,3 +1,11 @@
 servlet:
   session:
     timeout: 3600s
+spring:
+  flyway:
+	locations:classpath:db/migration
+	baseline-on-migrate:true
+	validate-on-migrate:false
+	datasource:url:jdbc:mysql://192.168.0.105:3306/sick-ness?useUnicode=true&characterEncoding=utf8&useSSL=false
+	username:test
+	password:DDgo@123
