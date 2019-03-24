@@ -2,6 +2,9 @@
 	"folders": [
 		{
 			"path": "WebApp"
+		},
+		{
+			"path": "D:\\GitHub\\sickness-system\\old"
 		}
 	],
 	"settings": {}

@@ -27,3 +27,7 @@
 .menu_list ul li a.index_menu_li_Color{
     color: #1890ff;
 }
+.dropdown-menu-item ul li{
+    width: 100px;
+    text-align: center;
+}
