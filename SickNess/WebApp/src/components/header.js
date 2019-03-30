@@ -10,15 +10,11 @@ class Header extends Component {
     state = {
         isLogin: false,
     }
-
     componentDidMount() {
         // props
         let isLogin = this.props.isLogin;
         this.setState({ isLogin })
     }
-
-
-
     renderPersonalCenter = () => {
         if (this.state.isLogin) {
             return (

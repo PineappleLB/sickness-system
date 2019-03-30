@@ -1,23 +1,18 @@
 import React from 'react';
 import { withRouter } from 'react-router-dom';
 import PropTypes from "proptypes";
-// import { message } from 'antd';
+import { message } from 'antd';
 class ScrollToTop extends React.Component{
 
     componentWillUpdate(prevProps){
-        // let path = prevProps.location.pathname;
-        // let history = this.context.router.history;
-        // // console.log(path)
-        // if(path === "/toLogin"){
-        //     window.scrollTo(0, 0);
-        //     history.push("/index");
-        // }
-        // let userInfo = JSON.parse(sessionStorage.getItem("userinfo")) || {}
-        // let logined = (!userInfo || JSON.stringify(userInfo)==='{}') ? false : true;
-        // if(prevProps.location.pathname === "/login" && !logined){
-        //     message.info("请先登录！")
-        //     history.push("/index");
-        // }
+        let history = this.context.router.history;
+        let userInfo = JSON.parse(sessionStorage.getItem("userinfo")) || {}
+        let logined = (!userInfo || JSON.stringify(userInfo)==='{}') ? false : true;
+        // 如果不是前往登录页面，并且没有登录的状态，就跳转到登录的路由
+        if(prevProps.location.pathname != "/login" && !logined){
+            message.info("请先登录！");
+            history.push("/login");
+        }
     }
 
     componentDidUpdate(prevProps){

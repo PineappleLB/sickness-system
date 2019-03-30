@@ -9,6 +9,7 @@ import './App.css';
 import Header from './components/header';
 import Footer from './components/footer';
 import { Modal, Form, Input } from 'antd';
+import Login from './components/login/login';
 
 function About() {
   return <h2>About</h2>;
@@ -42,6 +43,7 @@ class App extends Component {
                 <Route path="/index" component={Index} />
                 <Route path="/about/" component={About} />
                 <Route path="/users/" component={Users} />
+                <Route path="/login/" component={Login} />
               </ScrollToTop>
             </div>
             <Footer />
