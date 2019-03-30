@@ -8,8 +8,8 @@ import Index from "./components/index/index";
 import './App.css';
 import Header from './components/header';
 import Footer from './components/footer';
-import { Modal, Form, Input } from 'antd';
 import Login from './components/login/login';
+import regist from './components/regist/regist';
 
 function About() {
   return <h2>About</h2>;
@@ -22,21 +22,14 @@ class App extends Component {
 
   state = {
     user: null,
-    loginVisiable: false,
-  }
-
-  showLoginModal = () => {
-    this.state.loginVisiable = true;
-    console.log(1)
   }
 
   render() {
-    const { getFieldDecorator } = this.props.form;
     return (
       <div className="app">
         <Router>
           <div>
-            <Header isLogin={this.state.user != null} login={this.showLoginModal} />
+            <Header isLogin={this.state.user != null} />
             <div className="router_container">
               <ScrollToTop>
                 <Route path="/" exact render={() => (<Redirect to='/index' />)} />
@@ -44,37 +37,17 @@ class App extends Component {
                 <Route path="/about/" component={About} />
                 <Route path="/users/" component={Users} />
                 <Route path="/login/" component={Login} />
+                <Route path="/regist/" component={regist} />
               </ScrollToTop>
             </div>
             <Footer />
           </div>
         </Router>
-        <Modal
-          title="登录"
-          visible={this.state.loginVisiable}
-          onOk={() => {this.setState({loginVisiable: false})}}
-          onCancel={() => {this.setState({loginVisiable: false})}}
-        >
-          <Form onSubmit={this.loginSubmit}>
-            <Form.Item label="手机号">
-              {getFieldDecorator('account')(
-                <Input type="text" />
-              )}
-            </Form.Item>
-            <Form.Item label="密码">
-              {getFieldDecorator('pasword')(
-                <Input.Password type="password" />
-              )}
-            </Form.Item>
-
-          </Form>
-        </Modal>
       </div>
     );
   }
 }
 
-App = Form.create({})(App);
 App.contextTypes = {
   router: PropTypes.object.isRequired
 };

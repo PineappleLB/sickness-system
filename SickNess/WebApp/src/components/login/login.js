@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
+import { withRouter, NavLink } from 'react-router-dom';
 import { Form, Input, Button } from 'antd';
+import PropTypes from "proptypes";
 import request from "../../utils/request";
 import './login.css';
 
@@ -11,36 +13,46 @@ class Login extends Component {
     loginSubmit = (e) => {
         e.preventDefault();
         console.log(1)
+        const { form: { validateFields } } = this.props;
+        const history = this.context.router.history;
+        validateFields((errors, values) => {
+            if(errors) {
+                console.log(errors)
+                return;
+            }
+            sessionStorage.setItem("userInfo", JSON.stringify(values));
+            history.push("/index");
+        });
     }
 
     render() {
         const { getFieldDecorator } = this.props.form;
         const formItemLayout = {
             labelCol: {
-              xs: { span: 24 },
-              sm: { span: 4 },
+                xs: { span: 24 },
+                sm: { span: 4 },
             },
             wrapperCol: {
-              xs: { span: 24 },
-              sm: { span: 20 },
+                xs: { span: 24 },
+                sm: { span: 20 },
             },
-          };
+        };
         return (
             <div className="loginContainer">
-                <Form {...formItemLayout} onSubmit={this.loginSubmit}>
+                <Form {...formItemLayout} onSubmit={this.loginSubmit} onReset={() => {this.props.form.resetFields()}}>
                     <h1>区域疾病监控系统登录</h1>
                     <Form.Item label="用户名">
                         {getFieldDecorator('account')(
-                            <Input />
+                            <Input placeholder="请输入用户名..." />
                         )}
                     </Form.Item>
                     <Form.Item label="密  码">
                         {getFieldDecorator('pasword')(
-                            <Input.Password />
+                            <Input.Password placeholder="请输入密码..." />
                         )}
                     </Form.Item>
                     <Form.Item>
-                        <div><a href="/regist">没有账号？点此立即注册！</a></div>
+                        <div><NavLink to="/regist">没有账号？点此立即注册！</NavLink></div>
                     </Form.Item>
                     <Form.Item>
                         <Button type="primary" htmlType="submit">登录</Button>
@@ -50,7 +62,9 @@ class Login extends Component {
             </div>
         )
     }
-
 }
+Login.contextTypes = {
+    router: PropTypes.object.isRequired
+};
 Login = Form.create({})(Login);
-export default Login;
+export default withRouter(Login);
