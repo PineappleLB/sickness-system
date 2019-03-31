@@ -56,6 +56,9 @@ class Header extends Component {
             <section className="menu_list">
                 <ul>
                     <li>
+                        区域疾病监控系统
+                    </li>
+                    <li>
                         <NavLink to="/index" activeClassName="index_menu_li_Color">首页</NavLink>
                     </li>
                     <li>
