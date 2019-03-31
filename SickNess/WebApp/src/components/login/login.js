@@ -3,6 +3,7 @@ import { withRouter, NavLink } from 'react-router-dom';
 import { Form, Input, Button } from 'antd';
 import PropTypes from "proptypes";
 import request from "../../utils/request";
+import emitter from '../../event';
 import './login.css';
 
 class Login extends Component {
@@ -21,6 +22,7 @@ class Login extends Component {
                 return;
             }
             sessionStorage.setItem("userInfo", JSON.stringify(values));
+            emitter.emit("userLogin", values)
             history.push("/index");
         });
     }

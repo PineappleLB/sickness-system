@@ -10,7 +10,10 @@ import Header from './components/header';
 import Footer from './components/footer';
 import Login from './components/login/login';
 import regist from './components/regist/regist';
+import emitter from './event';
+import Utils from './utils/appUtils';
 
+let sessionUser = Utils.getUser();
 function About() {
   return <h2>About</h2>;
 }
@@ -21,7 +24,23 @@ function Users() {
 class App extends Component {
 
   state = {
-    user: null,
+    user: sessionUser,
+  }
+
+  componentDidMount() {
+    this.eventEmitter = emitter.addListener("userLogin", (userInfo) => {
+      console.log("emmiter:" + userInfo)
+      if (userInfo != null) {
+        this.setState({
+          user: userInfo,
+        });
+      }
+    });
+    this.eventEmitter = emitter.addListener("userLogout", () => {
+      this.setState({
+        user: null,
+      });
+    });
   }
 
   render() {
