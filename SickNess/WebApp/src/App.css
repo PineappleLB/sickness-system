@@ -3,7 +3,8 @@
 .app {
   text-align: center;
   background: #eee;
+  padding-top: 70px; 
 }
 .app .router_container{
-  margin-top: 70px;
+  /* margin-top: 70px; */
 }

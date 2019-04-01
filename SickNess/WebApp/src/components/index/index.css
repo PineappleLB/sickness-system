@@ -1,4 +1,13 @@
+.left{
+    background: white;
+}
+.right {
+}
+.left .clock {
+    height: 150px;
+}
 .ant-carousel div img{
+    width: 280px;
     text-align: center;
     display: inline-block;
     margin: 0 auto;

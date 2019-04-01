@@ -1,0 +1,48 @@
+.style {
+    margin-top: 140px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .backgroundImg {
+    width: 220px;
+    height: 220px;
+    position: absolute;
+  }
+  
+  .container {
+    flex-direction: row;
+    display: flex;
+    position: relative;
+  }
+  
+  .container > div {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    box-shadow: 1px 1px 4px 1px rgba(0, 0, 0, .4);
+    background-color: white;
+  }
+  
+  .clockMinuteLine {
+    width: 3px;
+    height: 95px;
+    transform-origin: bottom;
+  }
+  
+  .clockHourLine {
+    width: 4px;
+    height: 65px;
+    background-color: blue;
+    transform-origin: bottom;
+  }
+  
+  .clockSecondLine {
+    width: 2px;
+    height: 105px;
+    background-color: gray;
+    transform-origin: bottom;
+  }
+  
