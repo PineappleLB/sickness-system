@@ -27,8 +27,8 @@ class Header extends Component {
     }
 
     renderPersonalCenter = () => {
-        let user = this.props.user;
-        if (this.state.isLogin) {
+        let { isLogin } = this.state;
+        if (isLogin) {
             let menu = (
                 <Menu>
                     <Menu.Item rel="noreferrer" href="javascript:void(0);">我的资料</Menu.Item>
@@ -37,7 +37,7 @@ class Header extends Component {
                 </Menu>);
             return (
                 <Dropdown overlay={menu} overlayClassName="dropdown-menu-item">
-                    <NavLink to={user ? "/user" : "/login"}>
+                    <NavLink to={isLogin ? "/user" : "/login"}>
                         个人中心
                     </NavLink>
                 </Dropdown>
@@ -50,8 +50,6 @@ class Header extends Component {
     }
 
     render() {
-        let user = this.props.user;
-        let menu = this.renderPersonalCenter();
         return (
             <section className="menu_list">
                 <ul>
@@ -77,9 +75,7 @@ class Header extends Component {
                         {this.renderPersonalCenter()}
                     </li>
                 </ul>
-
             </section>)
     }
-
 }
 export default Header;

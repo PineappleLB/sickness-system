@@ -12,14 +12,11 @@ import Login from './components/login/login';
 import regist from './components/regist/regist';
 import emitter from './event';
 import Utils from './utils/appUtils';
+import User from './components/user/user';
 
 let sessionUser = Utils.getUser();
 function About() {
   return <h2>About</h2>;
-}
-
-function Users() {
-  return <h2>Users</h2>;
 }
 class App extends Component {
 
@@ -53,10 +50,10 @@ class App extends Component {
               <ScrollToTop>
                 <Route path="/" exact render={() => (<Redirect to='/index' />)} />
                 <Route path="/index" component={Index} />
-                <Route path="/about/" component={About} />
-                <Route path="/users/" component={Users} />
-                <Route path="/login/" component={Login} />
-                <Route path="/regist/" component={regist} />
+                <Route path="/about" component={About} />
+                <Route path="/user" component={User} />
+                <Route path="/login" component={Login} />
+                <Route path="/regist" component={regist} />
               </ScrollToTop>
             </div>
             <Footer />

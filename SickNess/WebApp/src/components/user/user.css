@@ -1,0 +1,23 @@
+.user {
+    height: 600px;
+    width: 90%;
+    margin: 0 auto;
+    padding-top: 50px;
+    background: white;
+    background-size: cover;
+    color: white;
+}
+.user>form {
+    width: 600px;
+    display: inline-block;
+}
+.user>form .ant-form-item:nth-child(4) .ant-form-item-control-wrapper .ant-form-item-control{
+    border: 1px solid #d9d9d9;
+    border-radius: 4px;
+}
+.user>form .ant-form-item-control-wrapper #birthday{
+    width: 100%;
+}
+.user>form .ant-form-item-control-wrapper #birthday input{
+    text-align: center;
+}
