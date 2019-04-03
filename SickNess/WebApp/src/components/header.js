@@ -45,7 +45,7 @@ class Header extends Component {
                         <NavLink to="/user">我的资料</NavLink>
                     </Menu.Item>
                     <Menu.Item rel="noreferrer" href="javascript:void(0);">
-                        修改密码
+                        <NavLink to="/resetPwd">修改密码</NavLink>
                     </Menu.Item>
                     <Menu.Item rel="noreferrer" onClick={this.userLogout} href="javascript:void(0);">
                         退出登录

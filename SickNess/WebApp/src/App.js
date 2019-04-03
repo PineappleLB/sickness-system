@@ -13,6 +13,7 @@ import regist from './components/regist/regist';
 import emitter from './event';
 import Utils from './utils/appUtils';
 import User from './components/user/user';
+import ResetPassword from './components/user/rePassword';
 
 let sessionUser = Utils.getUser();
 function About() {
@@ -54,6 +55,7 @@ class App extends Component {
                 <Route path="/user" component={User} />
                 <Route path="/login" component={Login} />
                 <Route path="/regist" component={regist} />
+                <Route path="/resetPwd" component={ResetPassword} />
               </ScrollToTop>
             </div>
             <Footer />
