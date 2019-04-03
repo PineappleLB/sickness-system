@@ -1,5 +1,5 @@
 .user {
-    height: 600px;
+    /* height: 600px; */
     width: 90%;
     margin: 0 auto;
     padding-top: 50px;
@@ -20,4 +20,7 @@
 }
 .user>form .ant-form-item-control-wrapper #birthday input{
     text-align: center;
+}
+.user>form .ant-form-item:last-child .ant-form-item-control-wrapper .ant-form-item-control button{
+    margin: 0 30px;
 }

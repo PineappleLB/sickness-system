@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
-import { NavLink } from "react-router-dom";
+import { withRouter, NavLink } from "react-router-dom";
 import "./header.css";
+import PropTypes from "proptypes";
 import { Menu, Dropdown, Icon } from 'antd';
 import emitter from '../event';
 /**
@@ -26,20 +27,35 @@ class Header extends Component {
         emitter.emit("userLogout");
     }
 
+    renderTarget = (e) => {
+        e.preventDefault();
+        // let { isLogin } = this.state;
+        // const history = this.context.router.history;
+        // if(isLogin) {
+        //     history.push();
+        // }
+    }
+
     renderPersonalCenter = () => {
         let { isLogin } = this.state;
         if (isLogin) {
             let menu = (
                 <Menu>
-                    <Menu.Item rel="noreferrer" href="javascript:void(0);">我的资料</Menu.Item>
-                    <Menu.Item rel="noreferrer" href="javascript:void(0);">修改密码</Menu.Item>
-                    <Menu.Item rel="noreferrer" onClick={this.userLogout} href="javascript:void(0);">退出登录</Menu.Item>
+                    <Menu.Item rel="noreferrer" href="javascript:void(0);">
+                        <NavLink to="/user">我的资料</NavLink>
+                    </Menu.Item>
+                    <Menu.Item rel="noreferrer" href="javascript:void(0);">
+                        修改密码
+                    </Menu.Item>
+                    <Menu.Item rel="noreferrer" onClick={this.userLogout} href="javascript:void(0);">
+                        退出登录
+                    </Menu.Item>
                 </Menu>);
             return (
                 <Dropdown overlay={menu} overlayClassName="dropdown-menu-item">
-                    <NavLink to={isLogin ? "/user" : "/login"}>
+                    <a href="#" onClick={this.renderTarget}>
                         个人中心
-                    </NavLink>
+                    </a>
                 </Dropdown>
             );
         } else {
@@ -78,4 +94,7 @@ class Header extends Component {
             </section>)
     }
 }
-export default Header;
+Header.contextTypes = {
+    router: PropTypes.object.isRequired
+};
+export default withRouter(Header);
