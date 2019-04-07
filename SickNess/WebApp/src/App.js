@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-// import { message, Modal, Icon, Button, Input, Upload } from 'antd';
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import { Redirect } from "react-router";
 import ScrollToTop from './ScrollToTop';
@@ -9,11 +8,15 @@ import './App.css';
 import Header from './components/header';
 import Footer from './components/footer';
 import Login from './components/login/login';
-import regist from './components/regist/regist';
+import Regist from './components/regist/regist';
 import emitter from './event';
 import Utils from './utils/appUtils';
 import User from './components/user/user';
 import ResetPassword from './components/user/rePassword';
+import FeedBack from './components/feedback/feedback';
+import Consult from './components/consult/consult';
+import Chat from './components/chat/chat';
+import knowledge from './components/knowledge/knowledge';
 
 let sessionUser = Utils.getUser();
 function About() {
@@ -54,8 +57,12 @@ class App extends Component {
                 <Route path="/about" component={About} />
                 <Route path="/user" component={User} />
                 <Route path="/login" component={Login} />
-                <Route path="/regist" component={regist} />
+                <Route path="/regist" component={Regist} />
+                <Route path="/feedback" component={FeedBack} />
+                <Route path="/consult" component={Consult} />
                 <Route path="/resetPwd" component={ResetPassword} />
+                <Route path="/knowledge" component={knowledge} />
+                <Route path="/onlineChat/:dockerId" component={Chat} />
               </ScrollToTop>
             </div>
             <Footer />

@@ -1,12 +1,17 @@
-.left{
-    background: white;
+.index{
+    min-height: 600px;
+    padding-top: 30px;
 }
-.right {
+.index .left{
+    /* background: white; */
 }
-.left .clock {
+.index .right .ant-list .ant-list-item {
+    margin: 5px;
+}
+.index .left .clock {
     height: 150px;
 }
-.ant-carousel div img{
+.index .ant-carousel div img{
     width: 280px;
     text-align: center;
     display: inline-block;

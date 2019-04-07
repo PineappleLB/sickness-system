@@ -1,0 +1,9 @@
+.consult{
+    min-height: 600px;
+}
+.consult .ant-list .ant-list-item .ant-list-item-action>li>span>i{
+    font-size: 20px;
+}
+.consult .ant-list .ant-list-item .ant-list-item-action>li>span>i.online{
+    color: blue;
+}

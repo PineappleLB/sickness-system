@@ -76,17 +76,17 @@ class Header extends Component {
                         <NavLink to="/index" activeClassName="index_menu_li_Color">首页</NavLink>
                     </li>
                     <li>
-                        <NavLink to="/sick-knowledge" activeClassName="index_menu_li_Color">疾病知识</NavLink>
+                        <NavLink to="/knowledge" activeClassName="index_menu_li_Color">疾病知识</NavLink>
                     </li>
                     <li>
-                        <NavLink to="/online-feedback" activeClassName="index_menu_li_Color">咨询反馈</NavLink>
+                        <NavLink to="/feedback" activeClassName="index_menu_li_Color">反馈</NavLink>
                     </li>
                     <li>
-                        <NavLink to="/data-upload" activeClassName="index_menu_li_Color">数据上传</NavLink>
+                        <NavLink to="/consult" activeClassName="index_menu_li_Color">咨询</NavLink>
                     </li>
-                    <li>
+                    {/* <li>
                         <NavLink to="/data-analysis" activeClassName="index_menu_li_Color">数据分析</NavLink>
-                    </li>
+                    </li> */}
                     <li>
                         {this.renderPersonalCenter()}
                     </li>

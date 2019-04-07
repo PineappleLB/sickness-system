@@ -1,0 +1,40 @@
+.chat{
+    min-height: 600px;
+    padding-top: 30px;
+}
+.chat .chatBox .base{
+    text-align: left;
+}
+.chat .chatBox .base div{
+    margin: 8px 10px;
+}
+.chat .chatBox .base>div>span>i {
+    font-size: 20px;
+}
+.chat .chatBox .base>div>span>i.online {
+    color: blue;
+}
+.chat .chatBox .messageBox {
+    height: 400px;
+    background: white;
+    overflow-y: auto;
+    overflow-x: hidden;
+    padding: 10px 15px;
+}
+.chat .chatBox .messageBox .ant-list .ant-list-item {
+    border: none;
+    min-height: 56px;
+}
+.chat .chatBox .messageBox .ant-list .ant-list-item .ant-list-item-meta-content{
+    text-align: left;
+    min-height: 30px;
+    line-height: 30px;
+}
+.chat .chatBox .messageBox .ant-list .ant-list-item .ant-list-item-meta-content .ant-list-item-meta-description{
+    min-height: 30px;
+    line-height: 30px;
+    border: 1px solid gray;
+    display: inline-block;
+    border-radius: 5px;
+    padding: 0 5px;
+}
