@@ -2,11 +2,11 @@ import React, { Component } from 'react';
 import { withRouter, NavLink } from 'react-router-dom';
 import { Form, Input, Button } from 'antd';
 import PropTypes from "proptypes";
-import request from "../../utils/request";
-import emitter from '../../event';
-import './login.css';
+import request from "../../../utils/request";
+import emitter from '../../../event';
+import './managerLogin.css';
 
-class Login extends Component {
+class SuperManagerLogin extends Component {
 
     state = {
     }
@@ -21,10 +21,10 @@ class Login extends Component {
                 console.log(errors)
                 return;
             }
-            sessionStorage.setItem("userInfo", JSON.stringify(values));
-            sessionStorage.removeItem("superManagerInfo");
+            sessionStorage.setItem("superManagerInfo", JSON.stringify(values));
+            sessionStorage.removeItem("userInfo");
             sessionStorage.removeItem("managerInfo");
-            emitter.emit("userLogin", values)
+            emitter.emit("superManagerLogin", values);
             history.push("/index");
         });
     }
@@ -44,7 +44,7 @@ class Login extends Component {
         return (
             <div className="loginContainer">
                 <Form {...formItemLayout} onSubmit={this.loginSubmit} onReset={() => {this.props.form.resetFields()}}>
-                    <h1>区域疾病监控系统登录</h1>
+                    <h1>区域疾病监控系统超级管理员登录</h1>
                     <Form.Item label="用户名">
                         {getFieldDecorator('account')(
                             <Input placeholder="请输入用户名..." />
@@ -56,9 +56,6 @@ class Login extends Component {
                         )}
                     </Form.Item>
                     <Form.Item>
-                        <div><NavLink to="/regist">没有账号？点此立即注册！</NavLink></div>
-                    </Form.Item>
-                    <Form.Item>
                         <Button type="primary" htmlType="submit">登录</Button>
                         <Button type="primary" htmlType="reset">重置</Button>
                     </Form.Item>
@@ -67,8 +64,8 @@ class Login extends Component {
         )
     }
 }
-Login.contextTypes = {
+SuperManagerLogin.contextTypes = {
     router: PropTypes.object.isRequired
 };
-Login = Form.create({})(Login);
-export default withRouter(Login);
+SuperManagerLogin = Form.create({})(SuperManagerLogin);
+export default withRouter(SuperManagerLogin);

@@ -17,8 +17,12 @@ import FeedBack from './components/feedback/feedback';
 import Consult from './components/consult/consult';
 import Chat from './components/chat/chat';
 import knowledge from './components/knowledge/knowledge';
+import managerLogin from './components/manager/login/managerLogin';
+import superManagerLogin from './components/manager/login/superManagerLogin';
 
 let sessionUser = Utils.getUser();
+let sessionManager = Utils.getManager();
+let sessionSuperManager = Utils.getSuperManager();
 function About() {
   return <h2>About</h2>;
 }
@@ -26,6 +30,8 @@ class App extends Component {
 
   state = {
     user: sessionUser,
+    manager: sessionManager,
+    superManager: sessionSuperManager,
   }
 
   componentDidMount() {
@@ -37,19 +43,40 @@ class App extends Component {
         });
       }
     });
-    this.eventEmitter = emitter.addListener("userLogout", () => {
+    this.eventEmitter = emitter.addListener("managerLogin", (managerInfo) => {
+      console.log("emmiter:" + managerInfo)
+      if (managerInfo != null) {
+        this.setState({
+          manager: managerInfo,
+        });
+      }
+    });
+    this.eventEmitter = emitter.addListener("superManagerLogin", (superManagerInfo) => {
+      console.log("emmiter:" + superManagerInfo)
+      if (superManagerInfo != null) {
+        this.setState({
+          superManager: superManagerInfo,
+        });
+      }
+    });
+    this.eventEmitter = emitter.addListener("logout", () => {
       this.setState({
         user: null,
+        manager: null,
+        superManager: null,
       });
     });
   }
 
   render() {
+    let { user, manager, superManager } = this.state;
+    let isLogin = user || manager || superManager;
+    let loginType = superManager ? 3 : manager ? 2 : user ? 1 : 0;
     return (
       <div className="app">
         <Router>
           <div>
-            <Header isLogin={this.state.user != null} />
+            <Header isLogin={isLogin} loginType={loginType} />
             <div className="router_container">
               <ScrollToTop>
                 <Route path="/" exact render={() => (<Redirect to='/index' />)} />
@@ -63,6 +90,8 @@ class App extends Component {
                 <Route path="/resetPwd" component={ResetPassword} />
                 <Route path="/knowledge" component={knowledge} />
                 <Route path="/onlineChat/:dockerId" component={Chat} />
+                <Route path="/manager" component={managerLogin} />
+                <Route path="/superManager" component={superManagerLogin} />
               </ScrollToTop>
             </div>
             <Footer />

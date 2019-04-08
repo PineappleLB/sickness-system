@@ -6,8 +6,12 @@ class ScrollToTop extends React.Component{
 
     componentWillUpdate(prevProps){
         let history = this.context.router.history;
-        let userInfo = JSON.parse(sessionStorage.getItem("userInfo")) || {}
+        let userInfo = JSON.parse(sessionStorage.getItem("userInfo")) || {};
+        let manager = JSON.parse(sessionStorage.getItem("managerInfo")) || {};
+        let superManager = JSON.parse(sessionStorage.getItem("superManagerInfo")) || {};
         let logined = (!userInfo || JSON.stringify(userInfo)==='{}') ? false : true;
+        logined = logined || !(!manager || JSON.stringify(manager)==='{}');
+        logined = logined || !(!superManager || JSON.stringify(superManager)==='{}');
         // 如果不是前往登录页面，并且没有登录的状态，就跳转到登录的路由
         if(prevProps.location.pathname != "/login" && !logined){
             message.info("请先登录！");

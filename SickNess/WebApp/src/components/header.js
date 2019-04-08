@@ -11,16 +11,19 @@ class Header extends Component {
 
     state = {
         isLogin: false,
+        loginType: 0,
     }
+
     componentDidMount() {
         // props
         let isLogin = this.props.isLogin;
         this.setState({ isLogin })
     }
+
     componentWillReceiveProps(nextProps) {
         console.log("props更新：")
         console.log(nextProps);
-        this.setState({ isLogin: nextProps.isLogin });
+        this.setState({ isLogin: nextProps.isLogin, loginType: nextProps.loginType });
     }
 
     userLogout = (e) => {
@@ -65,33 +68,96 @@ class Header extends Component {
         }
     }
 
+    renderUserMenu = () => {
+        return (
+            <ul className="user-h">
+                <li>
+                    区域疾病监控系统
+                    </li>
+                <li>
+                    <NavLink to="/index" activeClassName="index_menu_li_Color">首页</NavLink>
+                </li>
+                <li>
+                    <NavLink to="/knowledge" activeClassName="index_menu_li_Color">疾病知识</NavLink>
+                </li>
+                <li>
+                    <NavLink to="/feedback" activeClassName="index_menu_li_Color">反馈</NavLink>
+                </li>
+                <li>
+                    <NavLink to="/consult" activeClassName="index_menu_li_Color">咨询</NavLink>
+                </li>
+                <li>
+                    {this.renderPersonalCenter()}
+                </li>
+            </ul>
+        );
+    }
+
+    renderManagerMenu = () => {
+        return (
+            <ul className="manager-h">
+                <li>
+                    区域疾病监控系统
+                    </li>
+                <li>
+                    <NavLink to="/index" activeClassName="index_menu_li_Color">首页</NavLink>
+                </li>
+                <li>
+                    <NavLink to="/sickerConsult" activeClassName="index_menu_li_Color">病人咨询</NavLink>
+                </li>
+                <li>
+                    <NavLink to="/dataSubmit" activeClassName="index_menu_li_Color">数据上传</NavLink>
+                </li>
+                <li>
+                    <NavLink to="/dataCheck" activeClassName="index_menu_li_Color">上传信息审核</NavLink>
+                </li>
+                {/* <li>
+                    <NavLink to="/knowledgePublish" activeClassName="index_menu_li_Color">疾病知识发布</NavLink>
+                </li> */}
+                <li>
+                    {this.renderPersonalCenter()}
+                </li>
+            </ul>
+        )
+    }
+
+    renderSuperManagerMenu = () => {
+        return (
+            <ul className="superManager-h">
+                <li>
+                    区域疾病监控系统
+                    </li>
+                <li>
+                    <NavLink to="/index" activeClassName="index_menu_li_Color">首页</NavLink>
+                </li>
+                <li>
+                    <NavLink to="/knowledge" activeClassName="index_menu_li_Color">疾病知识</NavLink>
+                </li>
+                <li>
+                    <NavLink to="/feedback" activeClassName="index_menu_li_Color">反馈</NavLink>
+                </li>
+                <li>
+                    <NavLink to="/consult" activeClassName="index_menu_li_Color">咨询</NavLink>
+                </li>
+                <li>
+                    {this.renderPersonalCenter()}
+                </li>
+            </ul>
+        )
+    }
+
     render() {
         return (
             <section className="menu_list">
-                <ul>
-                    <li>
-                        区域疾病监控系统
-                    </li>
-                    <li>
-                        <NavLink to="/index" activeClassName="index_menu_li_Color">首页</NavLink>
-                    </li>
-                    <li>
-                        <NavLink to="/knowledge" activeClassName="index_menu_li_Color">疾病知识</NavLink>
-                    </li>
-                    <li>
-                        <NavLink to="/feedback" activeClassName="index_menu_li_Color">反馈</NavLink>
-                    </li>
-                    <li>
-                        <NavLink to="/consult" activeClassName="index_menu_li_Color">咨询</NavLink>
-                    </li>
-                    {/* <li>
-                        <NavLink to="/data-analysis" activeClassName="index_menu_li_Color">数据分析</NavLink>
-                    </li> */}
-                    <li>
-                        {this.renderPersonalCenter()}
-                    </li>
-                </ul>
-            </section>)
+                {
+                    this.state.loginType <= 1 ? 
+                    this.renderUserMenu() : 
+                    this.state.loginType == 2 ? 
+                    this.renderManagerMenu() : 
+                    this.renderSuperManagerMenu()
+                }
+            </section>
+        )
     }
 }
 Header.contextTypes = {
