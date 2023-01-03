@@ -12,7 +12,7 @@
     "react-router": "^4.0.0",
     "react-router-dom": "^4.0.0",
     "react-cookies": "^0.1.0",
-    "react-scripts": "2.1.5",
+    "react-scripts": "5.0.1",
     "events": "^3.0.0",
     "china-division": "^2.1.1",
     "proptypes": "^1.1.0"
